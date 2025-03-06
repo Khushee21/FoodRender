@@ -1,0 +1,87 @@
+{
+    "info": {
+        "id": "681527",
+        "name": "LeanCrust Pizza- ThinCrust Experts",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/8/30/992503ef-db6d-4495-b770-571f29e6bb4e_681527.jpg",
+        "locality": "Sector 7",
+        "areaName": "Rohini",
+        "costForTwo": "₹300 for two",
+        "cuisines": [
+            "Pizzas",
+            "Italian",
+            "Desserts"
+        ],
+        "avgRating": 4.5,
+        "parentId": "11216",
+        "avgRatingString": "4.5",
+        "totalRatingsString": "500",
+        "sla": {
+            "deliveryTime": 25,
+            "lastMileTravel": 2.8,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-30 mins",
+            "lastMileTravelString": "2.8 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-03-05 02:00:00",
+            "opened": true
+        },
+        "badges": {
+            "textExtendedBadges": [
+                {
+                    "iconId": "guiltfree/GF_Logo_android_3x",
+                    "shortDescription": "options available",
+                    "fontColor": "#7E808C"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "",
+                                "fontColor": "#7E808C",
+                                "iconId": "guiltfree/GF_Logo_android_3x",
+                                "shortDescription": "options available"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹159"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-8880350c-2254-405d-b665-32768038459f"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/delhi/leancrust-pizza-thincrust-experts-sector-7-rohini-rest681527",
+        "type": "WEBLINK"
+    }
+}

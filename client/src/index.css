@@ -1,0 +1,485 @@
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+/* Select all CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-size: small;
+}
+
+
+
+body {
+  background-color: #f1f1f1;
+}
+
+/* CSS for scroll-bar */
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  color: orange;
+  background-color: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: orange;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Restaurant Header CSS */
+.header {
+  width: auto;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 3%;
+  background-color: #e7e6e6;
+  box-shadow: 0 0 10px rgba(6, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav-items > ul {
+  display: flex;
+  /* font-size:larger; */
+}
+
+.nav-items > ul > li {
+  list-style: none;
+  color: #333;
+  font-size: medium;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0px 12px;
+}
+
+.nav-items > ul > li:hover {
+  color: orange;
+}
+
+/* Restaurant Body CSS */
+.body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+ background-color: #E0E0E0;
+}
+
+
+.search-box {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #c9c8c8;
+  padding: 0px 17px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-color: rgb(178, 181, 184);
+  margin:9px;
+}
+
+.search-box > input {
+  height: 40px;
+  padding: 0px 17px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  background-color: #f1f1f1;
+  width: 90%;
+  font-size: 1.2rem;
+}
+
+.search-icon {
+  color: #828080;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.restaurant-container {
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2%;
+  row-gap: 20px;
+}
+
+.restaurant-card {
+  width: 250px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(96, 96, 96, 0.1);
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  transform: scale(0.99);
+}
+
+.search {
+  padding: 10px;
+}
+
+.restaurant-logo {
+  width: 100%;
+  height: 65%;
+  margin: 0px;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.restaurant-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 5px 0px;
+}
+
+.restaurant-details {
+  height: fit-content;
+  padding: 0px 10px;
+  overflow: hidden;
+  font-size: 15px;
+ 
+}
+
+.esa-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0px;
+  margin-right: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating-logo {
+  background-color: green;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 2px;
+}
+
+.cousine,
+.location {
+  color: #828080;
+  font-weight: 500;
+  font-size: 10px;
+  padding-bottom: 5px;
+}
+
+/* Footer CSS */
+.footer {
+  
+  width: auto;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 5px;
+  background-color: #e7e6e6;
+  box-shadow: 0 0 10px rgba(216, 215, 215, 0.1);
+}
+
+.footer > strong {
+  padding-left: 5px;
+}
+
+.footer > span {
+  margin: 0px 5px;
+  font-size: 20px;
+}
+
+.footer > strong > span {
+  color: orange;
+}
+
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
+  height: 25px;
+}
+
+.shimmer-container{
+  margin-top: 10%;
+  margin-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.shimmer-card{
+  margin: 20px;
+  width: 250px;
+  height: 300px;
+  background-color: gray;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(96, 96, 96, 0.1);
+  cursor: pointer;
+}
+
+.login {
+  padding:0 20px 0;
+  cursor: pointer;
+}
+
+.filter{
+  display: flex;
+  left: 20%;
+}
+.search {
+  display: flex;
+  left: 29%;
+}
+
+.search-btn{
+  height: 25px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+ 
+  padding: 0px 17px;
+
+  font-size: 1rem;
+  /* background-color: rgb(178, 181, 184); */
+  margin:9px;
+
+}
+.menu{
+  margin-top: 10%;
+  text-align: center;
+}
+
+.menu-name{
+  font-size: large;
+  margin: 6px;
+}
+
+.user-card{
+  padding: 10px;
+  border: 1px solid black;
+}
+
+
+.contact-page{
+  height: 600px;
+}
+
+.contact{
+  margin-top: 9%;
+  padding: 2%;
+}
+
+.promoted-label-wrapper{
+    position: relative;
+    display: inline-block;
+
+}
+.promoted-label {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: #ffcc00;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.cat-header { 
+  width: 60%;
+  max-width: 1200px;
+  margin: 0 auto; 
+  margin-top: 2.5%;
+  margin-bottom: 12px;
+  background-color: rgb(229, 225, 225);
+  padding: 4px;
+  text-align: center; 
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  /* display: flex;
+  justify-content: space-between; */
+  align-items: center;
+  cursor: pointer;
+}
+
+.cat-name{
+  font-weight: 600;
+}
+.cat-inner-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cat-id {
+  padding: 3px;
+  margin: 2px;
+  border-bottom: 1px solid #797272;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.cat-des{
+  font-size:xx-small;
+  margin-left: 3px;
+  margin-right: 10%;
+}
+
+.cat-info{
+  padding: 0.5%;
+  margin-left: 8px;
+  font-weight: 400;
+}
+.cat-img{
+  width: 96%;
+  margin: 2px;
+}
+.cat-content{
+  width: 80%;
+}
+
+.cat-img-content {
+  width: 20%;
+  position: relative;  /* This makes sure child elements can use absolute positioning */
+}
+
+.cat-btn-content {
+  position: absolute;  /* Place the button over the image */
+  bottom: 10px;        /* Adjust this to position it correctly */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the button */
+  z-index: 10;  /* Ensures the button stays above the image */
+}
+
+.cat-btn {
+  padding: 3px 7px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.cat-btn:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fully visible on hover */
+}
+.user-card{
+  
+  border: black;
+  margin: 10px;
+  cursor: pointer;
+  height: 25px;
+  padding: 2px;
+}
+.user-search{
+  height: 25px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0px 17px;
+  font-size: 1rem;
+   background-color: rgba(234, 236, 238, 0.828); 
+  margin:9px;
+}
+.cart-container{
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  height: 400px
+}
+.cart {
+  font-size: x-large;
+  font-weight: 600;
+  margin-top:7%;
+  padding: 5px;
+  margin-bottom: 1.5%;
+}
+
+.cart-items{
+  width: 70%;
+  margin: auto;
+}
+
+.clear-cart{
+  margin-bottom: 2%;
+  padding: 3px 7px;
+  background-color: rgba(255, 255, 255, 0.427); /* Semi-transparent background */
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.clear-cart:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fully visible on hover */
+}
+.user-container{
+  display: flex;
+}
+.user-label{
+  margin-bottom: 20px;
+  margin:9px;
+  padding: 0px 0px;
+
+}
+
+.contact-name{
+  padding: 3px;
+  margin: 2px;
+}
+
+.contact-msg{
+  padding: 3px;
+  margin: 2px;
+}
+
+.contact-btn{
+  padding: 3px;
+  margin: 2px;
+  background-color: #c9c8c8;
+}
