@@ -7,7 +7,6 @@ import UserContext from "./utils/UserContext";
 import {Provider} from "react-redux";
 import appStore from "./utils/appStore";
 
-// const Grocery = lazy(() => import("./Components/Grocery"));
 
 const App = () => {
   // Manage user info state

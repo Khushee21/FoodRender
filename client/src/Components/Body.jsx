@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { CiSearch } from "react-icons/ci";
+import { CiSearch, CiStar } from "react-icons/ci";
+import { FiFilter } from "react-icons/fi";
+import { IoRestaurantOutline } from "react-icons/io5";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -47,7 +49,6 @@ const Body = () => {
     }
   };
 
-  // **Debounced Search Effect**
   useEffect(() => {
     const timer = setTimeout(() => {
       if (searchText.trim() === "") {
@@ -58,7 +59,7 @@ const Body = () => {
         );
         setFilterRestra(filtered);
       }
-    }, 300); // Wait for 300ms after user stops typing
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [searchText, allRestaurants]);
@@ -75,61 +76,101 @@ const Body = () => {
   const { setUserInfo, loggedInUser } = useContext(UserContext);
 
   if (!onlineStatus) {
-    return <h1>You're offline. Please check your internet connection.</h1>;
+    return (
+      <div className="offline-container">
+        <div className="offline-content">
+          <h1>Oops! You're offline</h1>
+          <p>Please check your internet connection and try again</p>
+          <div className="offline-icon">📶</div>
+        </div>
+      </div>
+    );
   }
 
   if (isLoading) return <Shimmer />;
-  if (error) return <h2>Error: {error}</h2>;
+  if (error) return <ErrorDisplay message={error} />;
 
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
-          <input
-            type="text"
-            data-testid="searchInput"
-            className="search-box"
-            value={searchText}
-            placeholder="Search restaurants..."
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <CiSearch className="search-icon" />
+    <div className="body-container">
+      {/* Filter and Search Section */}
+      <div className="filter-section">
+        <div className="search-container">
+          <div className="search-input-wrapper">
+            <CiSearch className="search-icon" />
+            <input
+              type="text"
+              data-testid="searchInput"
+              className="search-input"
+              value={searchText}
+              placeholder="Search for restaurants..."
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+          </div>
         </div>
 
-        <button className="filter-btn" onClick={toggleFilter}>
-          {filteredRestra.length !== allRestaurants.length
-            ? "Show All Restaurants"
-            : "Top Rated Restaurants"}
-        </button>
+        <div className="action-buttons">
+          <button className="filter-button" onClick={toggleFilter}>
+            <FiFilter className="button-icon" />
+            {filteredRestra.length !== allRestaurants.length
+              ? "Show All"
+              : "Top Rated"}
+          </button>
 
-        <div className="user-container">
-          <label className="user-label">User Name: </label>
-          <input
-            className="user-search"
-            value={loggedInUser || ""}
-            placeholder="Enter your name"
-            onChange={(e) => setUserInfo(e.target.value)}
-          />
+          <div className="user-profile">
+            <label className="user-label">Welcome, </label>
+            <input
+              className="user-input"
+              value={loggedInUser || ""}
+              placeholder="Your name"
+              onChange={(e) => setUserInfo(e.target.value)}
+            />
+          </div>
         </div>
       </div>
 
-      <div className="restaurant-container">
+      {/* Restaurant Listing */}
+      <div className="restaurant-listing">
         {filteredRestra.length > 0 ? (
-          filteredRestra.map((restaurant) => (
-            <Link key={restaurant?.info?.id} to={`/restaurants/${restaurant?.info?.id}`}>
-              {restaurant.info.promoted ? (
-                <RestaurantCardPromoted restaurantData={restaurant} />
-              ) : (
-                <RestaurantCard restaurantData={restaurant} />
-              )}
-            </Link>
-          ))
+          <div className="restaurant-grid">
+            {filteredRestra.map((restaurant) => (
+              <Link
+                key={restaurant?.info?.id}
+                to={`/restaurants/${restaurant?.info?.id}`}
+                className="restaurant-link"
+              >
+                {restaurant.info.promoted ? (
+                  <RestaurantCardPromoted restaurantData={restaurant} />
+                ) : (
+                  <RestaurantCard restaurantData={restaurant} />
+                )}
+              </Link>
+            ))}
+          </div>
         ) : (
-          <h2>No restaurants found</h2>
+          <div className="no-results">
+            <IoRestaurantOutline className="no-results-icon" />
+            <h2>No restaurants found</h2>
+            <p>Try adjusting your search or filter</p>
+          </div>
         )}
       </div>
     </div>
   );
 };
+
+const ErrorDisplay = ({ message }) => (
+  <div className="error-container">
+    <div className="error-content">
+      <h2>Something went wrong</h2>
+      <p>{message}</p>
+      <button 
+        className="retry-button"
+        onClick={() => window.location.reload()}
+      >
+        Retry
+      </button>
+    </div>
+  </div>
+);
 
 export default Body;

@@ -5,13 +5,13 @@ const Footer = () => {
       <div className="footer">
         Created By
         <span>❤️</span>
-        <a href="https://www.linkedin.com/feed/" target="_blank">
+        <a href="linkedin.com/in/khushi-rathore-5363a8257" target="_blank">
           Khushi Rathore
         </a>
         <span>&copy;</span>
         {year}
         <strong>
-          Tasty <span>Trails</span>
+          FoodRender
         </strong>
       </div>
     );

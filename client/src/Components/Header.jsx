@@ -1,64 +1,100 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { useState , useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { useContext } from "react";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
-
+import { FiShoppingCart, FiUser, FiHome, FiInfo, FiPhone, FiShoppingBag, FiWifi, FiWifiOff } from "react-icons/fi";
+import { HiOutlineLogin, HiOutlineLogout } from "react-icons/hi";
 
 const Header = () => {
-    const [btnNameReact , setBtnName ]=useState("Login");
-
-    const onlineStatus= useOnlineStatus();
-
-    const {loggedInUser} =useContext(UserContext);
-    // console.log(data);
-
-    // subscribing to store using Selector
-     
+    const [btnNameReact, setBtnName] = useState("Login");
+    const onlineStatus = useOnlineStatus();
+    const { loggedInUser } = useContext(UserContext);
     const cartItem = useSelector((store) => store.cart.items);
 
+    const toggleLogin = () => {
+        setBtnName(btnNameReact === "Login" ? "Logout" : "Login");
+    };
 
     return (
-        <div className="header">
-            <div className="logo-container">
-                {/* Reference the image using the correct path */}
-                <img className="logo" src="https://i.pinimg.com/736x/26/30/d7/2630d7c4e12d206645cbd7b4e6ef7254.jpg" alt="Tasty Trails Logo" />
+        <header className="header-container">
+            <div className="header-content">
+                {/* Logo Section */}
+                <div className="logo-section">
+                    <Link to="/" className="logo-link">
+                        <img 
+                            className="logo" 
+                            src="https://i.pinimg.com/236x/55/ab/14/55ab1492fdaea7fd22464412f2c51f0c.jpg" 
+                            alt="FoodRender Logo" 
+                        />
+                        <span className="brand-name">FoodRender</span>
+                    </Link>
+                </div>
+
+                {/* Navigation Section */}
+                <nav className="nav-section">
+                    <ul className="nav-list">
+                        <li className="nav-item status">
+                            {onlineStatus ? (
+                                <FiWifi className="online-icon" title="Online" />
+                            ) : (
+                                <FiWifiOff className="offline-icon" title="Offline" />
+                            )}
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/" className="nav-link">
+                                <FiHome className="nav-icon" />
+                                <span>Home</span>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/about" className="nav-link">
+                                <FiInfo className="nav-icon" />
+                                <span>About</span>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/contact" className="nav-link">
+                                <FiPhone className="nav-icon" />
+                                <span>Contact</span>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/grocery" className="nav-link">
+                                <FiShoppingBag className="nav-icon" />
+                                <span>Grocery</span>
+                            </Link>
+                        </li>
+                        <li className="nav-item cart">
+                            <Link to="/cart" className="nav-link cart-link">
+                                <FiShoppingCart className="cart-icon" />
+                                <span className="cart-count">{cartItem.length}</span>
+                                <span className="cart-text">Cart</span>
+                            </Link>
+                        </li>
+                        <li className="nav-item user">
+                            <div className="user-info">
+                                <FiUser className="user-icon" />
+                                <span className="username">{loggedInUser || 'Guest'}</span>
+                            </div>
+                        </li>
+                        <li className="nav-item">
+                            <button 
+                                className="login-btn"
+                                onClick={toggleLogin}
+                            >
+                                {btnNameReact === "Login" ? (
+                                    <HiOutlineLogin className="login-icon" />
+                                ) : (
+                                    <HiOutlineLogout className="logout-icon" />
+                                )}
+                                <span>{btnNameReact}</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li>
-                        Online Statu:{onlineStatus ? "✅" : "❌"}
-                    </li>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">
-                        About Us</Link></li>
-                    <li>
-                        <Link to="/contact">Contact Us</Link>
-                    </li>
-                    <li>
-                        <Link to="/grocery">Grocery</Link>
-                    </li>
-                    <li >
-                        <Link to="/cart">Cart : ({cartItem.length} items)</Link>
-                    </li>
-                    <button 
-                    className="login"
-                    onClick={()=>{
-                        btnNameReact=== "Login" ? setBtnName("Logout") : setBtnName("Login");
-                    }} 
-                    >
-                      {btnNameReact}
-                    </button>
-                    <li className="nav-items">{loggedInUser}</li>
-                </ul>
-            </div>
-        </div>
+        </header>
     );
 };
 
