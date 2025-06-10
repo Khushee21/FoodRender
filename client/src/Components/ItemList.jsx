@@ -2,8 +2,6 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
-    // console.log(items); // Check if it's an array
-
   const dispatch = useDispatch();
   const handleAddItem = (item) => {
     //dispatch action

@@ -59,8 +59,8 @@ const Contact = () => {
               <i className="fas fa-envelope"></i>
             </div>
             <h3>Email Us</h3>
-            <p>orders@foodexpress.com</p>
-            <p>feedback@foodexpress.com</p>
+            <p>orders@foodrender.com</p>
+            <p>feedback@foodrender.com</p>
           </div>
         </div>
 

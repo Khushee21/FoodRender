@@ -1,9 +1,8 @@
-import React from "react";
-import User from "./User";
-import UserClass from "./UserClass";
 
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+  const router=useNavigate();
   return (
     <div className="about-container">
       {/* Hero Section */}
@@ -11,7 +10,7 @@ const About = () => {
         <div className="hero-content">
           <h1>Welcome to FoodRender</h1>
           <p className="hero-subtitle">Render Food into your tummy , Like React did</p>
-          <button className="order-cta">Order Now</button>
+          <button className="order-cta" onClick={()=>router('/')}>Order Now</button>
         </div>
       </section>
 
@@ -48,33 +47,10 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="team-section">
-        <h2 className="section-title">Meet Our Food Heroes</h2>
-        <p className="section-subtitle">The passionate team behind your delicious deliveries</p>
-        
-        <div className="team-grid">
-          <User 
-            name="Khushi Patel" 
-            role="Delivery Coordinator" 
-            bio="Ensures your food arrives hot and on time"
-            imgSrc="https://randomuser.me/api/portraits/women/44.jpg"
-            contact="@khushi"
-          />
-          <UserClass 
-            name="Raj Sharma" 
-            role="Head Chef & Quality Control" 
-            location="Neemuch"
-            bio="With 10+ years culinary experience, tasting every dish before it goes out"
-            imgSrc="https://randomuser.me/api/portraits/men/32.jpg"
-          />
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="cta-section">
         <h2>Ready to experience food magic?</h2>
-        <button className="cta-button">Explore Restaurants</button>
+        <button className="cta-button" onClick={()=>router('/')}>Explore Restaurants</button>
       </section>
     </div>
   );

@@ -4,17 +4,12 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 import { FiShoppingCart, FiUser, FiHome, FiInfo, FiPhone, FiShoppingBag, FiWifi, FiWifiOff } from "react-icons/fi";
-import { HiOutlineLogin, HiOutlineLogout } from "react-icons/hi";
+
 
 const Header = () => {
-    const [btnNameReact, setBtnName] = useState("Login");
     const onlineStatus = useOnlineStatus();
     const { loggedInUser } = useContext(UserContext);
     const cartItem = useSelector((store) => store.cart.items);
-
-    const toggleLogin = () => {
-        setBtnName(btnNameReact === "Login" ? "Logout" : "Login");
-    };
 
     return (
         <header className="header-container">
@@ -59,12 +54,7 @@ const Header = () => {
                                 <span>Contact</span>
                             </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/grocery" className="nav-link">
-                                <FiShoppingBag className="nav-icon" />
-                                <span>Grocery</span>
-                            </Link>
-                        </li>
+                        
                         <li className="nav-item cart">
                             <Link to="/cart" className="nav-link cart-link">
                                 <FiShoppingCart className="cart-icon" />
@@ -79,17 +69,7 @@ const Header = () => {
                             </div>
                         </li>
                         <li className="nav-item">
-                            <button 
-                                className="login-btn"
-                                onClick={toggleLogin}
-                            >
-                                {btnNameReact === "Login" ? (
-                                    <HiOutlineLogin className="login-icon" />
-                                ) : (
-                                    <HiOutlineLogout className="logout-icon" />
-                                )}
-                                <span>{btnNameReact}</span>
-                            </button>
+                            
                         </li>
                     </ul>
                 </nav>

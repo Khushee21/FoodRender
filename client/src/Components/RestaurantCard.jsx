@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
 
     // Check if restaurantData and restaurantData.info exist before destructuring
     if (!restaurantData || !restaurantData.info) {
-        return <div>Data is not available</div>; // Fallback if data is missing
+        return <div>{restaurantData}</div>; // Fallback if data is missing
     }
     // console.log(restaurantData);
 
